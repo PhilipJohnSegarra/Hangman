@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage">
+
+    <Grid RowDefinitions=".8*,.3*">
+        <VerticalStackLayout>
+            <Frame Padding="0,5" BorderColor="White">
+                <FlexLayout JustifyContent="Center">
+                    <Label Text="Category:"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           Margin="0,0,5,0"/>
+                    <Frame Padding="0,3" BorderColor="White">
+                        <Picker ItemsSource="{Binding categories}"
+                                 x:Name="CategoryPicker"
+                                 SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"
+                                 VerticalOptions="Center"
+                                TextColor="White"
+                                WidthRequest="200"
+                                HorizontalTextAlignment="Center">
+                        </Picker>
+                    </Frame>
+                   
+                </FlexLayout>
+            </Frame>
+            
+            <FlexLayout JustifyContent="SpaceBetween">
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="{Binding GameStatus}"
+                    VerticalOptions="Center"/>
+                <Button Text="Hint"
+                        x:Name="HintBtn"
+                        Clicked="HintBtn_Clicked"
+                        WidthRequest="150"
+                        HeightRequest="35"
+                        VerticalOptions="Center"
+                        Margin="0,5"
+                        BackgroundColor="#cf8e58">
+                        
+                </Button>
+                
+            </FlexLayout>
+            <Grid>
+                <Image Source="{Binding CurrentImage}"
+       />
+                <VerticalStackLayout VerticalOptions="End">
+                    <Label FontSize="40"
+                        HorizontalOptions="Center"
+                        Text="{Binding Spotlights}"
+                        VerticalTextAlignment="Center"/>
+                                            <Label FontSize="Large"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Message}"/>
+                                            <Button HorizontalOptions="Center"
+                                                     Text="Reset"
+                                                     WidthRequest="100"
+                                                     Clicked="Reset_Clicked"
+                                                    BackgroundColor="#cf8e58"/>
+                </VerticalStackLayout>
+                
+            </Grid>
+            
+        </VerticalStackLayout>
+        <FlexLayout Grid.Row="1"
+                    x:Name="LettersContainer"
+                    Wrap="Wrap"
+                    BindableLayout.ItemsSource="{Binding Letters}"
+                    JustifyContent="SpaceEvenly">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+
+                            <Button HeightRequest="50"
+                                WidthRequest="50"
+                                Text="{Binding .}"
+                                Clicked="Button_Clicked"
+                                BackgroundColor="Black"
+                                FontSize="24"
+                                TextColor="White"
+                                x:Name="letterBtn"/>
+
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </Grid>
+
+</ContentPage>
