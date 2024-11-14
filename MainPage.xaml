@@ -54,11 +54,11 @@
                                             <Label FontSize="Large"
                         HorizontalTextAlignment="Center"
                         Text="{Binding Message}"/>
-                                            <Button HorizontalOptions="Center"
-                                                     Text="Reset"
-                                                     WidthRequest="100"
-                                                     Clicked="Reset_Clicked"
-                                                    BackgroundColor="#cf8e58"/>
+                        <Button HorizontalOptions="Center"
+                                    Text="Reset"
+                                    WidthRequest="100"
+                                    Clicked="Reset_Clicked"
+                                BackgroundColor="#cf8e58"/>
                 </VerticalStackLayout>
                 
             </Grid>

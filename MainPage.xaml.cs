@@ -142,7 +142,7 @@ namespace Hangman
 		public MainPage()
 		{
 			InitializeComponent();
-			Letters.AddRange("abcdefghijklmanopqrustuvwxyz");
+			Letters.AddRange("abcdefghijklmnopqrstuvwxyz");
 			BindingContext = this;
 
 			//currentCategory = "Animals";
